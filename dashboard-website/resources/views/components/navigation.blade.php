@@ -8,14 +8,14 @@
                 <img src="img/logo.jpg" class="w-36" alt="">
             </div>
             <!-- Menu Items -->
-            <div class="hidden md:flex space-x-6">
+            <div class="hidden md:flex space-x-12">
                 <a href="{{ route('home') }}" class="hover:text-darkGrayishBlue">Home</a>
                 <a href="{{ route('statistics') }}" class="hover:text-darkGrayishBlue">Statistics</a>
                 <a href="{{ route('register') }}" class="hover:text-darkGrayishBlue">Register</a>
             </div>
             <!-- Button -->
             <a href="#" class="hidden md:flex p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight">
-                Login Now
+                Hello, Admin
             </a>
             <!-- Hamburger Icom -->
             <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">

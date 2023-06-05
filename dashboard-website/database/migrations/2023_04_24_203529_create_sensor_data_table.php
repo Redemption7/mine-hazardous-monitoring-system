@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('sensor_data', function (Blueprint $table) {
             $table->id();
-            $table->unsignedDouble('dust_reading');
-            $table->unsignedDouble('gas_reading');
-            $table->unsignedDouble('alcohol_reading')->nullable();
-            $table->string('alarm')->nullable();
+            $table->unsignedDouble('dust');
+            $table->unsignedDouble('gas');
+            $table->timestamp('time')->nullable();
             $table->timestamps();
         });
     }

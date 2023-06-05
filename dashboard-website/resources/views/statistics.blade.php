@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Landing Page</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
+    @livewireStyles
+    @livewireScripts
+        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -13,42 +24,28 @@
 <x-navigation />
 
 <!-- Graphs  -->
-<section class="mx-auto p-6">
-    <div class="flex items-center justify-center">
-        <div class="pr-4 w-3/4 md:w-3/12">
+<section class="mx-auto p-1 pl-5">
+    <div class="flex items-center pl-11">
+        <div class="pr-6 w-3/4 md:w-6/12">
             <div class="mx-auto overflow-hidden">
-                <canvas
-                    data-te-chart="pie"
-                    data-te-dataset-label="AIR QUALITY"
-                    data-te-labels="['Dust', 'Harmful Gas' , 'Oxygen' ]"
-                    data-te-dataset-data="[2112, 2343, 2545]"
-                    data-te-dataset-background-color="['rgba(63, 81, 181, 0.5)', 'rgba(77, 182, 172, 0.5)', 'rgba(66, 133, 244, 0.5)']">
-                </canvas>
+                <livewire:pie-chart-graph />
             </div>
         </div>
 
-        <div class="hidden md:flex h-[250px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100"></div>
+        <div class="hidden md:flex h-[350px] min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-20 dark:opacity-100"></div>
 
-        <div class="hidden md:block pl-4 pb-4 w-3/12">
-
-            <div class="mx-auto overflow-hidden">
-                <canvas
-                    data-te-chart="line"
-                    data-te-dataset-label="Employee Attendance"
-                    data-te-labels="['Monday', 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday ']"
-                    data-te-dataset-data="[3, 0, 0, 0, 0, 0, 0]">
-                </canvas>
+        <div class="pl-8 pb-4 w-6/12">
+            <div class="mx-auto ">
+                <livewire:line-chart-graph />
             </div>
-
         </div>
     </div>
-
 </section>
 
 <!-- Main content -->
 <section id="alert" class="mx-auto container w-1/4">
 
-    <div class="mb-3 inline-flex w-full items-center rounded-lg bg-success-100 px-6 py-5 text-base text-success-700"
+    <div class="hidden mb-3 inline-flex w-full items-center rounded-lg bg-success-100 px-6 py-5 text-base text-success-700"
         role="alert">
           <span class="mr-2">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +59,7 @@
           </span>
             A simple success alert - check it out!
     </div>
-    <div class="mb-3 inline-flex w-full items-center rounded-lg bg-danger-100 px-6 py-5 text-base text-danger-700"
+    <div class="hidden mb-3 inline-flex w-full items-center rounded-lg bg-danger-100 px-6 py-5 text-base text-danger-700"
         role="alert">
       <span class="mr-2">
         <svg xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +73,7 @@
           </span>
                 A simple danger alert - check it out!
     </div>
-    <div class="mb-3 inline-flex w-full items-center rounded-lg bg-warning-100 px-6 py-5 text-base text-warning-800"
+    <div class="hidden mb-3 inline-flex w-full items-center rounded-lg bg-warning-100 px-6 py-5 text-base text-warning-800"
         role="alert">
       <span class="mr-2">
         <svg xmlns="http://www.w3.org/2000/svg"
@@ -102,83 +99,34 @@
                     <table class="min-w-full text-center text-sm font-light">
                         <thead class="border-b font-medium dark:border-neutral-500">
                         <tr>
-                            <th scope="col" class="px-6 py-4">Class</th>
-                            <th scope="col" class="px-6 py-4">Heading</th>
-                            <th scope="col" class="px-6 py-4">Heading</th>
+                            <th scope="col" class="px-6 py-4">Name</th>
+                            <th scope="col" class="px-6 py-4">Department</th>
+                            <th scope="col" class="px-6 py-4">Login Time</th>
+                            <th scope="col" class="px-6 py-4">Alcohol Condition</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="border-b dark:border-neutral-500">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Default
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-primary-200 bg-primary-100 text-neutral-800">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Primary
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-secondary-200 bg-secondary-100 text-neutral-800">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Secondary
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-success-200 bg-success-100 text-neutral-800">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Success
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-danger-200 bg-danger-100 text-neutral-800">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Danger
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-warning-200 bg-warning-100 text-neutral-800">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Warning
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-info-200 bg-info-100 text-neutral-800">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Info
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-neutral-100 bg-neutral-50 text-neutral-800 dark:bg-neutral-50">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Light
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
-                        <tr
-                            class="border-b border-neutral-700 bg-neutral-800 text-neutral-50 dark:border-neutral-600 dark:bg-neutral-700">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium">
-                                Dark
-                            </td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                            <td class="whitespace-nowrap px-6 py-4">Cell</td>
-                        </tr>
+                            @foreach($users ?? [] as $user)
+                                @if($user->is_sobber == 1)
+                                    <tr class="border-b dark:border-neutral-500">
+                                        <td class="whitespace-nowrap px-6 py-4 font-medium">
+                                            {{ $user->name . " " . $user->surname }}
+                                        </td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$user->department}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$user->time}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{ $user->is_sobber != 1 ? 'Drunk' : 'Sober' }}</td>
+                                    </tr>
+                                @else
+                                    <tr class="border-b border-danger-200 bg-danger-100 text-neutral-800">
+                                        <td class="whitespace-nowrap px-6 py-4 font-medium">
+                                            {{ $user->name . " " . $user->surname }}
+                                        </td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$user->department}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{$user->time}}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">{{ $user->is_sobber != 1 ? 'Drunk' : 'Sober' }}</td>
+                                    </tr>
+                                @endif
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

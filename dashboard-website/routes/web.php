@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('statistics');
-});
+Route::get('/', function () { return view('statistics'); });
 
 Route::get('/home', function () {
     return view('welcome');
@@ -25,6 +24,14 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/statistics', function () {
+Route::post('/employee/store', [Controller::class, 'storeEmployee'])->name('store-employee');
+Route::get('/employee/sign-in', function () {
     return view('statistics');
-})->name('statistics');
+});
+
+// statistics
+Route::get('/statistics', [Controller::class, 'statisticsIndex'])->name('statistics');
+
+Route::get('/sensor-data', function () {
+    return view('statistics');
+});
