@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->boolean('is_logged')->default(false);
-            $table->boolean('is_sober')->default(false);
+            $table->boolean('is_notified')->default(false);
             $table->timestamp('time')->useCurrent();;
             $table->timestamps();
         });

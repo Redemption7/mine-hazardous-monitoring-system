@@ -170,7 +170,7 @@
                         centerX: am5.p0,
                         centerY: am5.p100
                     });
-                }
+                };
             }
 
         }); // end am5.ready()

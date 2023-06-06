@@ -40,7 +40,7 @@ class Controller extends BaseController
     // STATISTICS
 
     public function statisticsIndex(){
-        $users = User::where('is_logged', 1)->get();
-        return view('statistics', compact('users'));
+        $sys_users = User::where('is_logged', 1)->get();
+        return view('statistics', compact('sys_users'));
     }
 }

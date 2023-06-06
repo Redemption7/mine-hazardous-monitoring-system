@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('statistics'); });
+Route::get('/', [Controller::class, 'statisticsIndex']);
 
 Route::get('/home', function () {
     return view('welcome');
@@ -25,13 +25,9 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::post('/employee/store', [Controller::class, 'storeEmployee'])->name('store-employee');
-Route::get('/employee/sign-in', function () {
-    return view('statistics');
-});
+Route::get('/employee/sign-in', [Controller::class, 'statisticsIndex']);
 
 // statistics
 Route::get('/statistics', [Controller::class, 'statisticsIndex'])->name('statistics');
 
-Route::get('/sensor-data', function () {
-    return view('statistics');
-});
+Route::get('/sensor-data', [Controller::class, 'statisticsIndex']);

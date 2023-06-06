@@ -106,7 +106,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($users ?? [] as $user)
+                            @foreach($sys_users ?? [] as $user)
                                 @if($user->is_sobber == 1)
                                     <tr class="border-b dark:border-neutral-500">
                                         <td class="whitespace-nowrap px-6 py-4 font-medium">
