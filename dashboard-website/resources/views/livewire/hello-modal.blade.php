@@ -66,7 +66,7 @@
                 <!--Modal body-->
                 <div class="relative p-4 text-center" >
                     @if($user)
-                        <p>Welcome <span class="text-2xl"> {{ $user->name . " " . $user->surname }} </span>  to MHMS. Alcohol Condition <span class="text-2xl"> {{ $user->is_sobber != 1 ? 'Drunk' : 'Sober' }} </span> </p>
+                        <p><span class="text-2xl"> {{ $user->name . " " . $user->surname }} </span> login to MHMS at main entrance. The Alcohol Condition <span class="text-2xl  {{$user->is_sobber != 1 ? 'text-red-700' : ''}}"> {{ $user->is_sobber != 1 ? 'Drunk' : 'Sober' }} </span> </p>
                     @else
                         <p>Welcome <span class="text-2xl"> Dear Guest</span>  to MHMS.</p>
                     @endif
